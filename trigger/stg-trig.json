@@ -1,0 +1,25 @@
+{
+	"name": "stg-trig",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "wakanda_learn",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/files-generated/blobs/",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/04895792-60dd-49ec-83f7-d1a8010a2298/resourceGroups/resources-retail-data-dashboard/providers/Microsoft.Storage/storageAccounts/dataretailsalesdashboard",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
