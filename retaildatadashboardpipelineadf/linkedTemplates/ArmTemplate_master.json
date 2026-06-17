@@ -15,6 +15,10 @@
 			"type": "string",
 			"defaultValue": "https://dataretailsalesdashboard.dfs.core.windows.net/"
 		},
+		"stg-trig_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/04895792-60dd-49ec-83f7-d1a8010a2298/resourceGroups/resources-retail-data-dashboard/providers/Microsoft.Storage/storageAccounts/dataretailsalesdashboard"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -47,6 +51,9 @@
 					},
 					"linkretailsalesdata_properties_typeProperties_url": {
 						"value": "[parameters('linkretailsalesdata_properties_typeProperties_url')]"
+					},
+					"stg-trig_properties_typeProperties_scope": {
+						"value": "[parameters('stg-trig_properties_typeProperties_scope')]"
 					}
 				}
 			},

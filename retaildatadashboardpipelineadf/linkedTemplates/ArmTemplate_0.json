@@ -14,6 +14,10 @@
 		"linkretailsalesdata_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://dataretailsalesdashboard.dfs.core.windows.net/"
+		},
+		"stg-trig_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/04895792-60dd-49ec-83f7-d1a8010a2298/resourceGroups/resources-retail-data-dashboard/providers/Microsoft.Storage/storageAccounts/dataretailsalesdashboard"
 		}
 	},
 	"variables": {
@@ -1126,6 +1130,37 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/files_generated_get_data')]",
 				"[concat(variables('factoryId'), '/pipelines/link_pipline')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stg-trig')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "wakanda_learn",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/files-generated/blobs/",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('stg-trig_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/wakanda_learn')]"
 			]
 		}
 	]

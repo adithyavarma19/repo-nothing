@@ -11,6 +11,9 @@
 		"linkretailsalesdata_properties_typeProperties_url": {
 			"value": "https://dataretailsalesdashboard.dfs.core.windows.net/"
 		},
+		"stg-trig_properties_typeProperties_scope": {
+			"value": "/subscriptions/04895792-60dd-49ec-83f7-d1a8010a2298/resourceGroups/resources-retail-data-dashboard/providers/Microsoft.Storage/storageAccounts/dataretailsalesdashboard"
+		},
 		"containerUri": {
 			"value": ""
 		},
