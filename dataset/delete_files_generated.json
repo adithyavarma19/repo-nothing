@@ -1,0 +1,26 @@
+{
+	"name": "delete_files_generated",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkretailsalesdata",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_filename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().p_filename",
+					"type": "Expression"
+				},
+				"fileSystem": "files-generated"
+			}
+		}
+	}
+}
