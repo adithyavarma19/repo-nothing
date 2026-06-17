@@ -1,0 +1,15 @@
+{
+	"name": "retaildatadashboardpipelineadf",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e9332131-0971-4bda-a0e5-fd70ca376272",
+		"tenantId": "10f838a1-3321-4d96-9943-04260e557eb6"
+	}
+}
